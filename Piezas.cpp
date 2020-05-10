@@ -1,5 +1,6 @@
 #include "Piezas.h"
 #include <vector>
+
 /** CLASS Piezas
  * Class for representing a Piezas vertical board, which is roughly based
  * on the game "Connect Four" where pieces are placed in a column and 
@@ -15,13 +16,19 @@
  * dropped in column 2 should take [1,2].
 **/
 
-
 /**
  * Constructor sets an empty board (default 3 rows, 4 columns) and 
  * specifies it is X's turn first
 **/
 Piezas::Piezas()
 {
+    for(int i = 0; i < 4; i++) {
+		for(int j = 0; j < 3; j++) {
+			board[i].push_back(Blank);
+		}
+        colSize[i] = 0;
+	}
+    turn = X;
 }
 
 /**
@@ -30,6 +37,13 @@ Piezas::Piezas()
 **/
 void Piezas::reset()
 {
+    for(int i = 0; i < 4; i++) {
+		for(int j = 0; j < 3; j++) {
+			board[i][j] = Blank;
+		}
+        colSize[i] = 0;
+	}
+    
 }
 
 /**
@@ -42,7 +56,29 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    return Blank;
+    if(turn == X) {
+        turn = O;
+        if(colSize[column] == 3) {
+            return Blank;
+        } else if(column > 3) {
+            return Invalid;
+        } else {
+            board[column][colSize[column]] = X;
+            colSize[column]++;
+        }
+        return X;
+    } else {
+        turn = X;
+        if(colSize[column] == 3) {
+            return Blank;
+        } else if(column > 3) {
+            return Invalid;
+        } else {
+            board[column][colSize[column]] = O;
+            colSize[column]++;
+        }
+        return O;
+    }
 }
 
 /**
@@ -51,7 +87,12 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    return Blank;
+    if(row > 4) {
+        return Invalid;
+    } else if(column > 3) {
+        return Invalid;
+    }
+    return board[column][row];
 }
 
 /**
@@ -65,5 +106,69 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-    return Blank;
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 3; j++) {
+            if(board[i][j] == Blank) {
+                return Invalid;
+            }
+        }
+    }
+
+    int xScore(0);
+    int oScore(0);
+    int xTemp(0);
+    int oTemp(0);
+
+    // Scanning Columns
+    for(int i = 0; i < 4; i++) {
+        if(board[i][1] == X) {
+            xTemp++;
+            oTemp = 1;
+            if(board[i][0] == X) {
+                xTemp++;
+            }
+            if(board[i][2] == X) {
+                xTemp++;
+            }
+        } else {
+            oTemp++;
+            xTemp = 1;
+            if(board[i][0] == X) {
+                oTemp++;
+            }
+            if(board[i][2] == X) {
+                oTemp++;
+            }
+        }
+        if(xScore < xTemp) {
+            xScore = xTemp;
+        }
+        if(oScore < oTemp) {
+            oScore = oTemp;
+        }
+        xTemp = 0;
+        oTemp = 0;
+    }
+
+    // Scanning Rows
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 3; j++) {
+            switch(board[i][j]) {
+                case X:
+                    //thing
+                    break;
+                case O:
+                    //thing
+                    break;
+            }
+        }
+    }
+
+    if(xScore == oScore) {
+        return Blank;
+    } else if(xScore > oScore) {
+        return X;
+    } else {
+        return O;
+    }
 }
