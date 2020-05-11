@@ -133,10 +133,10 @@ Piece Piezas::gameState()
         } else {
             oTemp++;
             xTemp = 1;
-            if(board[i][0] == X) {
+            if(board[i][0] == O) {
                 oTemp++;
             }
-            if(board[i][2] == X) {
+            if(board[i][2] == O) {
                 oTemp++;
             }
         }
@@ -151,16 +151,46 @@ Piece Piezas::gameState()
     }
 
     // Scanning Rows
-    for(int i = 0; i < 4; i++) {
-        for(int j = 0; j < 3; j++) {
-            switch(board[i][j]) {
-                case X:
-                    //thing
-                    break;
-                case O:
-                    //thing
-                    break;
+    for(int j = 0; j < 3; j++) {
+        if(board[1][j] == X) {
+            xTemp++;
+            if(board[0][j] == X) {
+                xTemp++;
             }
+            if(board[2][j] == X) {
+                xTemp++;
+                if(board[3][j] == X) {
+                    xTemp++;
+                }
+            } else {
+                oTemp++;
+                if(board[3][j] == O) {
+                    oTemp++;
+                }
+            }
+        } else {
+            oTemp++;
+            if(board[0][j] == O) {
+                oTemp++;
+            }
+            if(board[2][j] == O) {
+                oTemp++;
+                if(board[3][j] == O) {
+                    oTemp++;
+                    xTemp = 1;
+                }
+            } else {
+                xTemp++;
+                if(board[3][j] == X) {
+                    xTemp++;
+                }
+            }
+        }
+        if(oScore < oTemp) {
+            oScore = oTemp;
+        }
+        if(xScore < xTemp) {
+            xScore = xTemp;
         }
     }
 

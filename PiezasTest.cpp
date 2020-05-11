@@ -18,3 +18,14 @@ TEST(PiezasTest, sanityCheck)
 {
 	ASSERT_TRUE(true);
 }
+
+TEST(PiezasTest, initCheck) {
+	Piezas board;
+	Piece testPiece;
+	testPiece = board.gameState();
+	ASSERT_TRUE(testPiece == X);
+}
+
+TEST(PiezasTest, insertCheck) {
+	ASSERT_TRUE(false);
+}
