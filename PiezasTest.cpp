@@ -51,6 +51,7 @@ TEST(PiezasTest, pieceAtCheck) {
 	Piezas board;
 	Piece testPiece;
 	Piece testPiece2;
+	Piece testPiece21;
 	Piece testPiece3;
 	testPiece = board.dropPiece(1);
 	ASSERT_EQ(testPiece, X);
@@ -58,10 +59,11 @@ TEST(PiezasTest, pieceAtCheck) {
 
 	testPiece2 = board.dropPiece(1);
 	ASSERT_EQ(testPiece2, O);
-	ASSERT_EQ(board.pieceAt(0,2), O);
-	ASSERT_EQ(board.pieceAt(0,2), X);
-	ASSERT_EQ(board.pieceAt(0,2), Invalid);
-	ASSERT_EQ(board.pieceAt(0,2), Blank);
+	testPiece21 = board.pieceAt(0,2);
+	ASSERT_EQ(testPiece21, O);
+	ASSERT_EQ(testPiece21, X);
+	ASSERT_EQ(testPiece21, Invalid);
+	ASSERT_EQ(testPiece21, Blank);
 
 	testPiece3 = board.dropPiece(1);
 	ASSERT_EQ(testPiece3, X);
