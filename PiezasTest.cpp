@@ -104,7 +104,7 @@ TEST(PiezasTest, xWinsGame) {
 	board.dropPiece(3); // O
 	board.dropPiece(2);
 	board.dropPiece(2);
-	//ASSERT_EQ(board.gameState(), X);
+	ASSERT_EQ(board.gameState(), X);
 }
 
 TEST(PiezasTest, oWinsGame) {
