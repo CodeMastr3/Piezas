@@ -45,6 +45,8 @@ TEST(PiezasTest, resetCheck) {
 }
 
 TEST(PiezasTest, insertCheck) {
+	Piezas board;
+	Piece testPiece;
 	testPiece = board.dropPiece(0);
 	ASSERT_EQ(testPiece, X);
 }
