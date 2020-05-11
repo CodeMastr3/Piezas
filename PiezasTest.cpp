@@ -22,7 +22,7 @@ TEST(PiezasTest, sanityCheck)
 TEST(PiezasTest, initCheck) {
 	Piezas board;
 	Piece testPiece;
-	testPiece = board.gameState();
+	testPiece = board.dropPiece(0);
 	ASSERT_TRUE(testPiece == X);
 }
 
