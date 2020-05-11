@@ -60,8 +60,18 @@ void Piezas::reset()
 Piece Piezas::dropPiece(int column)
 {
     if(column > 3 || column < 0) {
+        if(turn == X) {
+            turn = O;
+        } else {
+            turn = X;
+        }
         return Invalid;
     } else if(colSize[column] == 3) {
+        if(turn == X) {
+            turn = O;
+        } else {
+            turn = X;
+        }
         return Blank;
     } else {
         if(turn == X) {
