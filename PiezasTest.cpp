@@ -88,7 +88,9 @@ TEST(PiezasTest, xWinsGame) {
 	board.dropPiece(3); // O
 	board.dropPiece(2);
 	board.dropPiece(2);
-	ASSERT_EQ(board.gameState(), X);
+	Piece testPiece;
+	testPiece = board.gameState();
+	ASSERT_EQ(testPiece, X);
 	ASSERT_EQ(board.gameState(), Invalid);
 }
 
