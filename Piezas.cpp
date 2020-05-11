@@ -24,7 +24,7 @@ Piezas::Piezas()
 {
     for(int i = 0; i < 4; i++) {
 		for(int j = 0; j < 3; j++) {
-			board[i].push_back(Blank);
+			board[i][j] = Blank;
 		}
         colSize[i] = 0;
 	}
