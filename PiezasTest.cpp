@@ -30,11 +30,24 @@ TEST(PiezasTest, initCheck) {
 	}
 }
 
+TEST(PiezasTest, insertCheck) {
+	Piezas board;
+	Piece testPiece;
+	testPiece = board.dropPiece(0);
+	ASSERT_EQ(testPiece, X);
+}
+
+TEST(PiezasTest, pieceAtCheck) {
+	Piezas board;
+	Piece testPiece;
+	board.dropPiece(2);
+	testPiece = board.pieceAt(0,2);
+	ASSERT_EQ(testPiece, X);
+}
+
 TEST(PiezasTest, resetCheck) {
 	Piezas board;
 	Piece testPiece;
-	testPiece = board.dropPiece(2);
-	ASSERT_EQ(testPiece, X);
 	board.reset();
 	for(int i = 0; i < 4; i++) {
 		for(int j = 0; j < 3; j++) {
@@ -42,11 +55,4 @@ TEST(PiezasTest, resetCheck) {
 			ASSERT_EQ(testPiece, Blank);
 		}
 	}
-}
-
-TEST(PiezasTest, insertCheck) {
-	Piezas board;
-	Piece testPiece;
-	testPiece = board.dropPiece(0);
-	ASSERT_EQ(testPiece, X);
 }
