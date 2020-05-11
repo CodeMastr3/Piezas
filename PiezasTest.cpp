@@ -67,3 +67,8 @@ TEST(PiezasTest, resetCheck) {
 		}
 	}
 }
+
+TEST(PiezasTest, notDoneGameState) {
+	Piezas board;
+	ASSERT_EQ(board.gameState(), Invalid);
+}
