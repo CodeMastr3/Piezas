@@ -68,6 +68,10 @@ TEST(PiezasTest, pieceAtCheck) {
 	board.dropPiece(2);
 	testPiece = board.pieceAt(0,2);
 	ASSERT_EQ(testPiece, X);
+	testPiece = board.pieceAt(5, 0);
+	ASSERT_EQ(testPiece, Invalid);
+	testPiece = board.pieceAt(0, 4);
+	ASSERT_EQ(testPiece, Invalid);
 }
 
 TEST(PiezasTest, resetCheck) {
