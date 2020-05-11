@@ -23,7 +23,7 @@ TEST(PiezasTest, initCheck) {
 	Piezas board;
 	Piece testPiece;
 	testPiece = board.dropPiece(0);
-	ASSERT_TRUE(testPiece == X);
+	ASSERT_EQ(testPiece, X);
 }
 
 TEST(PiezasTest, insertCheck) {
