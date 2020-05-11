@@ -88,7 +88,7 @@ TEST(PiezasTest, xWinsGame) {
 	board.dropPiece(3); // O
 	board.dropPiece(2);
 	board.dropPiece(2);
-	ASSERT_EQ(board.gameState(), X)
+	ASSERT_EQ(board.gameState(), X);
 }
 
 TEST(PiezasTest, oWinsGame) {
@@ -105,7 +105,7 @@ TEST(PiezasTest, oWinsGame) {
 	board.dropPiece(0); // O
 	board.dropPiece(3);
 	board.dropPiece(3);
-	ASSERT_EQ(board.gameState(), O)
+	ASSERT_EQ(board.gameState(), O);
 }
 
 TEST(PiezasTest, tieGame) {
@@ -122,5 +122,5 @@ TEST(PiezasTest, tieGame) {
 	board.dropPiece(0); // Y
 	board.dropPiece(1);
 	board.dropPiece(2);
-	ASSERT_EQ(board.gameState(), Blank)
+	ASSERT_EQ(board.gameState(), Blank);
 }
