@@ -59,7 +59,7 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    if(column > 3) {
+    if(column > 3 && column < 0) {
         return Invalid;
     } else if(colSize[column] == 3) {
         return Blank;
