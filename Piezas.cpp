@@ -22,7 +22,10 @@
 **/
 Piezas::Piezas()
 {
+    board.resize(4);
+    colSize.resize(4);
     for(int i = 0; i < 4; i++) {
+        board[i].resize(3);
 		for(int j = 0; j < 3; j++) {
 			board[i][j] = Blank;
 		}
