@@ -57,8 +57,9 @@ TEST(PiezasTest, pieceAtCheck) {
 	ASSERT_EQ(testPiece, X);
 	ASSERT_EQ(board.pieceAt(0,1), X);
 
-	testPiece3 = board.dropPiece(1);
-	ASSERT_EQ(testPiece3, X);
+	board.dropPiece(1);
+
+	ASSERT_EQ(board.dropPiece(1), X);
 	ASSERT_EQ(board.pieceAt(0, 3), X);
 
 	ASSERT_EQ(board.pieceAt(5, 0), Invalid);
