@@ -24,7 +24,7 @@ TEST(PiezasTest, initCheck) {
 	Piece testPiece;
 	for(int i = 0; i < 4; i++) {
 		for(int j = 0; j < 3; j++) {
-			testPiece = board.pieceAt(i, j);
+			testPiece = board.pieceAt(j, i);
 			ASSERT_EQ(testPiece, Blank);
 		}
 	}
@@ -79,7 +79,7 @@ TEST(PiezasTest, resetCheck) {
 	board.reset();
 	for(int i = 0; i < 4; i++) {
 		for(int j = 0; j < 3; j++) {
-			testPiece = board.pieceAt(i, j);
+			testPiece = board.pieceAt(j, i);
 			ASSERT_EQ(testPiece, Blank);
 		}
 	}
