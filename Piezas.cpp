@@ -65,12 +65,12 @@ Piece Piezas::dropPiece(int column)
         return Blank;
     } else {
         if(turn == X) {
-            board[column][colSize[column]] = X;
+            board[colSize[column]][column] = X;
             colSize[column]++;
             turn = O;
             return X;
         } else {
-            board[column][colSize[column]] = O;
+            board[colSize[column]][column] = O;
             colSize[column]++;
             turn = X;
             return O;
