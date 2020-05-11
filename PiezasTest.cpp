@@ -51,13 +51,13 @@ TEST(PiezasTest, insertCheck) {
 TEST(PiezasTest, pieceAtCheck) {
 	Piezas board;
 	Piece testPiece;
+	Piece testPiece2;
 	board.dropPiece(2);
-	testPiece = board.pieceAt(0,2);
-	ASSERT_EQ(testPiece, X);
+	ASSERT_EQ(board.pieceAt(0,2), X);
 	testPiece = board.pieceAt(5, 0);
 	ASSERT_EQ(testPiece, Invalid);
-	testPiece = board.pieceAt(0, 4);
-	ASSERT_EQ(testPiece, Invalid);
+	testPiece2 = board.pieceAt(0, 4);
+	ASSERT_EQ(testPiece2, Invalid);
 }
 
 TEST(PiezasTest, resetCheck) {
