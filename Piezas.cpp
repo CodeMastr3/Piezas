@@ -58,10 +58,10 @@ Piece Piezas::dropPiece(int column)
 {
     if(turn == X) {
         turn = O;
-        if(colSize[column] == 3) {
-            return Blank;
-        } else if(column > 3) {
+        if(column > 3) {
             return Invalid;
+        } else if(colSize[column] == 3) {
+            return Blank;
         } else {
             board[column][colSize[column]] = X;
             colSize[column]++;
@@ -69,10 +69,10 @@ Piece Piezas::dropPiece(int column)
         return X;
     } else {
         turn = X;
-        if(colSize[column] == 3) {
-            return Blank;
-        } else if(column > 3) {
+        if(column > 3) {
             return Invalid;
+        } else if(colSize[column] == 3) {
+            return Blank;
         } else {
             board[column][colSize[column]] = O;
             colSize[column]++;
