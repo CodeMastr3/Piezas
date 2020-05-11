@@ -66,7 +66,7 @@ Piece Piezas::dropPiece(int column)
             turn = X;
         }
         return Invalid;
-    } else if(colSize[column] > 3) {
+    } else if(colSize[column] > 2) {
         if(turn == X) {
             turn = O;
         } else {
