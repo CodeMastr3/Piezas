@@ -46,7 +46,7 @@ void Piezas::reset()
 		}
         colSize[i] = 0;
 	}
-    
+    turn = X;
 }
 
 /**
