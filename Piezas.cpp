@@ -59,28 +59,20 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    if(turn == X) {
-        turn = O;
-        if(column > 3) {
-            return Invalid;
-        } else if(colSize[column] == 3) {
-            return Blank;
-        } else {
-            board[column][colSize[column]] = X;
-            colSize[column]++;
-        }
-        return X;
+    if(column > 3) {
+        return Invalid;
+    } else if(colSize[column] == 3) {
+        return Blank;
     } else {
-        turn = X;
-        if(column > 3) {
-            return Invalid;
-        } else if(colSize[column] == 3) {
-            return Blank;
+        board[column][colSize[column]] = turn;
+        colSize[column]++;
+        if(turn == X) {
+            turn = O;
+            return X;
         } else {
-            board[column][colSize[column]] = O;
-            colSize[column]++;
+            turn = X;
+            return O;
         }
-        return O;
     }
 }
 
