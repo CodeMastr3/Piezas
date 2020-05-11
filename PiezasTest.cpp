@@ -35,6 +35,31 @@ TEST(PiezasTest, insertCheck) {
 	Piece testPiece;
 	testPiece = board.dropPiece(0);
 	ASSERT_EQ(testPiece, X);
+	testPiece = board.dropPiece(0);
+	ASSERT_EQ(testPiece, O);
+	testPiece = board.dropPiece(0);
+	ASSERT_EQ(testPiece, X);
+	testPiece = board.dropPiece(0);
+	ASSERT_EQ(testPiece, Blank);
+	testPiece = board.dropPiece(4);
+	ASSERT_EQ(testPiece, Invalid);
+	testPiece = board.dropPiece(-1);
+	ASSERT_EQ(testPiece, Invalid);
+	testPiece = board.dropPiece(-1);
+	ASSERT_EQ(testPiece, Invalid);
+	testPiece = board.dropPiece(4);
+	ASSERT_EQ(testPiece, Invalid);
+	testPiece = board.dropPiece(1);
+	ASSERT_EQ(testPiece, X);
+	testPiece = board.dropPiece(1);
+	ASSERT_EQ(testPiece, O);
+	testPiece = board.dropPiece(2);
+	ASSERT_EQ(testPiece, X);
+	testPiece = board.dropPiece(1);
+	ASSERT_EQ(testPiece, O);
+	testPiece = board.dropPiece(1);
+	ASSERT_EQ(testPiece, Blank);
+	
 }
 
 TEST(PiezasTest, pieceAtCheck) {
