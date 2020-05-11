@@ -50,14 +50,18 @@ TEST(PiezasTest, insertCheck) {
 TEST(PiezasTest, pieceAtCheck) {
 	Piezas board;
 	Piece testPiece;
+	Piece testPiece2;
+	Piece testPiece3;
 	testPiece = board.dropPiece(1);
 	ASSERT_EQ(testPiece, X);
 	ASSERT_EQ(board.pieceAt(0,1), X);
-	testPiece = board.dropPiece(1);
-	ASSERT_EQ(testPiece, O);
+
+	testPiece2 = board.dropPiece(1);
+	ASSERT_EQ(testPiece2, O);
 	ASSERT_EQ(board.pieceAt(0,2), O);
-	testPiece = board.dropPiece(1);
-	ASSERT_EQ(testPiece, X);
+
+	testPiece3 = board.dropPiece(1);
+	ASSERT_EQ(testPiece3, X);
 	ASSERT_EQ(board.pieceAt(0,3), X);
 
 	ASSERT_EQ(board.pieceAt(5, 0), Invalid);
