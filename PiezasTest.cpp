@@ -19,13 +19,13 @@ TEST(PiezasTest, sanityCheck)
 	ASSERT_TRUE(true);
 }
 
+TEST(PiezasTest, insertCheck) {
+	ASSERT_TRUE(false);
+}
+
 TEST(PiezasTest, initCheck) {
 	Piezas board;
 	Piece testPiece;
 	testPiece = board.dropPiece(0);
 	ASSERT_EQ(testPiece, X);
-}
-
-TEST(PiezasTest, insertCheck) {
-	ASSERT_TRUE(false);
 }
