@@ -59,7 +59,7 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    if(column > 3 && column < 0) {
+    if(column > 3 || column < 0) {
         return Invalid;
     } else if(colSize[column] == 3) {
         return Blank;
@@ -84,9 +84,9 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    if(row > 4 && row < 0) {
+    if(row > 4 || row < 0) {
         return Invalid;
-    } else if(column > 3 && column < 0) {
+    } else if(column > 3 || column < 0) {
         return Invalid;
     }
     return board[row][column];
